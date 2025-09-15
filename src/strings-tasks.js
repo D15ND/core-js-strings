@@ -150,8 +150,14 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const firstValue = str.indexOf(value);
+  if (firstValue === -1) {
+    return str;
+  }
+  const start = str.slice(0, firstValue);
+  const finish = str.slice(firstValue + value.length);
+  return start + finish;
 }
 
 /**
@@ -166,8 +172,14 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const lastValue = str.lastIndexOf(value);
+  if (lastValue === -1) {
+    return str;
+  }
+  const start = str.slice(0, lastValue);
+  const finish = str.slice(lastValue + value.length);
+  return start + finish;
 }
 
 /**
@@ -234,8 +246,8 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  return `${minutes.toString().padStart(2, 0)}:${seconds.toString().padStart(2, 0)}`;
 }
 
 /**
